@@ -10,7 +10,7 @@ const content = computed(() => {
 
 <template>
   <!-- 一篇文章 -->
-  <div class="text-center">
+  <div class="entry">
     <div class="entry heti">
       <h2 class="p">谢往月</h2>
       <div class="p" v-html="content" />
@@ -23,5 +23,13 @@ const content = computed(() => {
 
 .p {
   font-family: 'LXGW WenKai', sans-serif;
+}
+
+.entry {
+  margin: 0 auto;
+  max-width: 680px;
+  padding: 0 1.5rem;
+  /* 文字居中 */
+  text-align: center;
 }
 </style>

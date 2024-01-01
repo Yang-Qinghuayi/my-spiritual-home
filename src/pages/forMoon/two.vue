@@ -10,7 +10,7 @@ const content = computed(() => {
 
 <template>
   <!-- 一篇文章 -->
-  <div class="text-center">
+  <div class="entry">
     <div class="entry heti">
       <h2 class="p">杨柳</h2>
       <div class="p" v-html="content" />
