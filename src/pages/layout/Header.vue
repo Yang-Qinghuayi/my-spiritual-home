@@ -2,6 +2,9 @@
   <v-app-bar class="app_header drag-area" flat height="56">
     <div class="d-flex no-drag-area mx-1 align-center ml-auto">
       <!-- <control-center-toggle /> -->
+      <!-- <div class="px-3 pt-1 pb-2">
+        <drawer-toggle />
+      </div> -->
       <theme-toggle />
       <account />
     </div>

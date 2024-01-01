@@ -1,7 +1,7 @@
 <template>
   <v-app class="material-you">
     <AppCC />
-    <app-nav v-if="mdAndUp" class="material-you-nav" />
+    <app-nav class="material-you-nav" />
     <app-header class="material-you-header" />
 
     <app-content class="material-you-content" />

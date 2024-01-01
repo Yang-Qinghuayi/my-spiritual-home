@@ -1,7 +1,7 @@
 <template>
   <v-btn icon class="no-drag-area" variant="text" @click="rail = !rail">
     <v-icon>
-      {{ rail ? mdiMenu : mdiMenuOpen }}
+      {{ mdiMenu }}
     </v-icon>
   </v-btn>
 </template>
