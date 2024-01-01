@@ -21,10 +21,8 @@ const appRoutes: RouteRecordRaw[] = [
   {
     path: "/setting",
     name: "setting",
-    component: Setting,
-    meta: {
-      keepAlive: true
-    }
+    component: Setting
+
   },
   {
     path: "/one",
@@ -35,9 +33,7 @@ const appRoutes: RouteRecordRaw[] = [
     path: "/two",
     name: "two",
     component: two,
-    meta: {
-      keepAlive: true
-    }
+    meta: { keepAlive: true }
   }
 ];
 
