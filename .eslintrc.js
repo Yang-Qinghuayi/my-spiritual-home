@@ -19,6 +19,7 @@ module.exports = {
     },
   },
   rules: {
+    // 'no-use-eslint': '',
     'vue/multi-word-component-names': 0,
     'vue/no-v-html': 0,
     'simple-import-sort/imports': 1,

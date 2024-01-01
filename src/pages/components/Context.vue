@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-center">
-    <v-card
+    <!-- <v-card
       variant="tonal"
       color="tertiary"
       width="250"
@@ -9,7 +9,7 @@
       @contextmenu.prevent="openContextMenu"
     >
       右键这里
-    </v-card>
+    </v-card> -->
   </div>
 </template>
 <script setup lang="ts">
