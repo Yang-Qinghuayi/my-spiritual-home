@@ -8,9 +8,9 @@
 
     <!-- 一篇文章 -->
     <div class="entry heti">
-      <h2 class="p">谢往月</h2>
+      <h2 class="p">2024</h2>
 
-      <div class="p" v-html="content" />
+      <div class="p">欢迎大家</div>
 
     </div>
   </div>
@@ -18,12 +18,10 @@
 <script setup lang="ts">
 import Context from "./components/Context.vue";
 import HelloWorld from "./components/HelloWorld.vue";
-// import { ref, computed } from "vue";
 import { marked } from "marked";
 
 import nine from "../assets/nine.md?raw" ;
 
-// const postList = import.meta.glob("./../public/posts/*.md");
 const content = computed(() => {
   return marked(nine);
 });

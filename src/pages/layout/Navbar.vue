@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { mdiAlbum, mdiCompass, mdiPlus } from '@mdi/js'
+import { mdiAlbum, mdiBookOpenBlankVariant, mdiCommentBookmark, mdiCompass, mdiPlus } from "@mdi/js";
 import { storeToRefs } from 'pinia'
 
 import VSquareBtn from '@/components/button/VSquareBtn.vue'
@@ -51,15 +51,21 @@ const nav = computed(() => {
     {
       icon: mdiAlbum,
       val: 'discover',
-      title: 'Home',
+      title: '欢迎',
       to: '/discover',
     },
     {
-      icon: mdiCompass,
+      icon: mdiBookOpenBlankVariant,
       val: 'playground',
-      title: 'playground',
-      to: '/playground',
+      title: '一',
+      to: '/one',
     },
+    {
+      icon: mdiBookOpenBlankVariant,
+      val: "two",
+      title: "二",
+      to: "/two"
+    }
   ]
   return list
 })

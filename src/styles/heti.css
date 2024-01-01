@@ -1,0 +1,7 @@
+/* heti.css */
+@import url('//unpkg.com/heti/umd/heti.min.css');
+
+@font-face {
+  font-family: 'LXGW WenKai';
+  src: url('../assets/LXGWWenKai-Regular.ttf');
+}
