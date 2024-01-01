@@ -13,20 +13,12 @@
         $t('common.shortcut')
       }}</v-toolbar-title>
       <v-spacer />
-      <v-btn icon size="small" @click="app.showControlCenter = false">
-        <v-icon size="small"> {{ mdiClose }} </v-icon>
-      </v-btn>
     </v-toolbar>
     <v-divider />
     <v-container>
       <v-row dense>
         <v-col class="d-flex">
-          <switch-card
-            v-model="darkMode"
-            :title="$t('common.dark_theme')"
-            :subtitle="$tc('common.open', darkMode ? 1 : 2)"
-            :icon="mdiCircleHalfFull"
-          />
+          <switch-card v-model="darkMode" :title="$t('common.dark_theme')" :icon="mdiCircleHalfFull" />
         </v-col>
         <v-col class="d-flex">
           <switch-card :title="$t('common.setting')" :icon="mdiCog" @click="to('setting')" />
@@ -34,7 +26,7 @@
       </v-row>
       <v-row dense>
         <v-col class="d-flex">
-          <switch-card v-if="isDev" title="playground" :icon="mdiCog" @click="to('playground')" />
+          <switch-card v-if="isDev" title="一" :icon="mdiCog" @click="to('one')" />
         </v-col>
       </v-row>
     </v-container>
@@ -66,7 +58,7 @@ export default defineComponent({
     })
     const isDev = import.meta.env.DEV ?? false
     // for dev
-    function to(name: 'setting' | 'playground') {
+    function to(name: 'setting' | 'one') {
       router.push(`/${name}`)
     }
     return {

@@ -3,15 +3,6 @@
     <div class="px-3 pt-1 pb-2">
       <drawer-toggle />
     </div>
-    <transition name="slide-fade-x">
-      <div v-if="rail" class="d-flex justify-center">
-        <v-square-btn rounded="lg" variant="flat" color="primary" size="x-large" class="mx-2" elevation="1">
-          <v-icon>
-            {{ mdiPlus }}
-          </v-icon>
-        </v-square-btn>
-      </div>
-    </transition>
 
     <div class="content-warp flex-fill no-drag-area" :class="{ 'rail-nav': rail }">
       <v-list class="list-content d-flex flex-column justify-center" rounded :nav="true">
