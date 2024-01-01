@@ -1,7 +1,7 @@
 <template>
   <v-main>
     <v-container class="pt-4" fluid>
-      <router-view v-slot="{ Component }">
+      <router-view v-slot="{ Component }" :key="route.path">
         <transition v-if="$route.meta['keepAlive']" name="route-animation" mode="out-in">
           <keep-alive>
             <component :is="Component" />
@@ -14,4 +14,8 @@
     </v-container>
   </v-main>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Router } from 'vue-router'
+
+const route = useRoute()
+</script>

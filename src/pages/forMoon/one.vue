@@ -1,13 +1,11 @@
 <script lang="ts" setup>
+import { marked } from 'marked'
 
-import { marked } from "marked";
-
-import nine from "@/assets/一.md?raw";
+import nine from '@/assets/一.md?raw'
 
 const content = computed(() => {
-  return marked(nine);
-});
-
+  return marked(nine)
+})
 </script>
 
 <template>
@@ -19,3 +17,11 @@ const content = computed(() => {
     </div>
   </div>
 </template>
+
+<style>
+@import '../../styles/heti.css';
+
+.p {
+  font-family: 'LXGW WenKai', sans-serif;
+}
+</style>

@@ -1,7 +1,9 @@
 {
   "message": {
-    "hello": "你好 世界",
+    "hello": "欢迎",
 
+    "one": "一",
+    "two": "二",
     "reset_app": "重置应用",
 
     "disclaimer": "免责声明",
