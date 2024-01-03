@@ -30,6 +30,7 @@ export interface SettingState {
   wallpaperColor: WallpaperColor
   rail: boolean
   account: Record<string, string>
+  drawer: boolean
 }
 export const useSettingStore = defineStore('setting', {
   state: () => {
@@ -42,6 +43,7 @@ export const useSettingStore = defineStore('setting', {
         customTheme: [],
         rail: true,
         account: {},
+        drawer: false,
       },
       { mergeDefaults: true }
     )

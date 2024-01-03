@@ -11,8 +11,8 @@ const content = computed(() => {
 <template>
   <!-- 一篇文章 -->
   <div class="entry">
-    <div class="entry heti">
-      <h2 class="p">谢往月</h2>
+    <div class="heti">
+      <h2 class="p">一</h2>
       <div class="p" v-html="content" />
     </div>
   </div>
@@ -26,9 +26,10 @@ const content = computed(() => {
 }
 
 .entry {
+  /* 分别是 */
   margin: 0 auto;
-  max-width: 680px;
-  padding: 0 1.5rem;
+  max-width: 640px;
+  padding: 0 0.4rem 0 0.7rem;
   /* 文字居中 */
   text-align: center;
 }

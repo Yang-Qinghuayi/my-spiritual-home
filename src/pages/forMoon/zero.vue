@@ -21,12 +21,17 @@ const content = computed(() => {
 <template>
   <!-- 一篇文章 -->
   <div class="text-center">
-    <div class="entry heti">
+    <div class="heti">
       <h2 class="p">2024</h2>
-      <div class="p">
-        对2024突然有一种想法,这很可能是小时候幻想中未来的年份吧<br />
-        有一晚的蜷缩做着未来的梦,一觉睡醒就穿越了
-      </div>
+      <div class="p">这篇小说就叫谢往月吧</div>
     </div>
   </div>
 </template>
+
+<style>
+@import '../../styles/heti.css';
+
+.p {
+  font-family: 'LXGW WenKai', sans-serif;
+}
+</style>

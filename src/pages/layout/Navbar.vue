@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer width="122" :rail="rail" rail-width="72" class="drag-area">
+  <v-navigation-drawer v-model="drawer" temporary width="122" :rail="rail" rail-width="72" class="drag-area">
     <!-- <div class="px-3 pt-1 pb-2">
       <drawer-toggle />
     </div> -->
@@ -34,6 +34,7 @@ import { storeToRefs } from 'pinia'
 import VSquareBtn from '@/components/button/VSquareBtn.vue'
 import { useSettingStore } from '@/store/setting'
 const { rail } = storeToRefs(useSettingStore())
+const { drawer } = storeToRefs(useSettingStore())
 
 const nav = computed(() => {
   const list = [
@@ -54,6 +55,12 @@ const nav = computed(() => {
       val: 'two',
       title: '二',
       to: 'two',
+    },
+    {
+      icon: mdiBookOpenBlankVariant,
+      val: 'three',
+      title: '三',
+      to: 'three',
     },
   ]
   return list

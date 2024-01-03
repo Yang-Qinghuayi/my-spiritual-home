@@ -1,5 +1,5 @@
 <template>
-  <v-btn icon class="no-drag-area" variant="text" @click="rail = !rail">
+  <v-btn icon class="no-drag-area" variant="text" @click="drawer = !drawer">
     <v-icon>
       {{ mdiMenu }}
     </v-icon>
@@ -12,5 +12,5 @@ import { storeToRefs } from 'pinia'
 
 import { useSettingStore } from '@/store/setting'
 
-const { rail } = storeToRefs(useSettingStore())
+const { drawer } = storeToRefs(useSettingStore())
 </script>

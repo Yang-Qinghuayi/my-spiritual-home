@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { marked } from 'marked'
 
-import nine from '@/assets/二.md?raw'
+import nine from '@/assets/三.md?raw'
 
 const content = computed(() => {
   return marked(nine)
@@ -12,7 +12,7 @@ const content = computed(() => {
   <!-- 一篇文章 -->
   <div class="entry">
     <div class="heti">
-      <h2 class="p">二</h2>
+      <h2 class="p">三</h2>
       <div class="p" v-html="content" />
     </div>
   </div>

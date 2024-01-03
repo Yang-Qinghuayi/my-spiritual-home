@@ -35,6 +35,12 @@ const appRoutes: RouteRecordRaw[] = [
     component: two,
     // meta: { keepAlive: true }
   },
+  {
+    path: '/three',
+    name: 'three',
+    component: import('@/pages/forMoon/three.vue'),
+    // meta: { keepAlive: true }
+  },
 ]
 
 export function useRouter(app: App) {
