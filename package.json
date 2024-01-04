@@ -1,9 +1,9 @@
 {
-  "name": "vue-vuetify-material-you-template",
+  "name": "my-spirtitual-home",
   "version": "0.0.1",
   "private": true,
-  "author": "gumengyu",
-  "description": "vue-vuetify-material-you-template",
+  "author": "YQHY",
+  "description": "my spirtual home",
   "scripts": {
     "preview": "vite preview",
     "dev": "vite",

@@ -28,7 +28,16 @@
 </template>
 
 <script setup lang="ts">
-import { mdiAlbum, mdiBookOpenBlankVariant, mdiCommentBookmark, mdiCompass, mdiPlus } from '@mdi/js'
+import {
+  mdiAlbum,
+  mdiBookOpenBlankVariant,
+  mdiCameraPartyMode,
+  mdiCommentBookmark,
+  mdiCompass,
+  mdiIdCard,
+  mdiPartyPopper,
+  mdiPlus,
+} from '@mdi/js'
 import { storeToRefs } from 'pinia'
 
 import VSquareBtn from '@/components/button/VSquareBtn.vue'
@@ -39,7 +48,7 @@ const { drawer } = storeToRefs(useSettingStore())
 const nav = computed(() => {
   const list = [
     {
-      icon: mdiAlbum,
+      icon: mdiPartyPopper,
       val: 'hello',
       title: '欢迎',
       to: 'zero',

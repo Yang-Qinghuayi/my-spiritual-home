@@ -3,10 +3,8 @@ import type { App } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const Discover = () => import('@/pages/Discover.vue')
 const FourOhFour = () => import('@/pages/errors/FourOhFour.vue')
 const Home = () => import('@/pages/Home.vue')
-
 const one = () => import('@/pages/forMoon/one.vue')
 const two = () => import('@/pages/forMoon/two.vue')
 const Setting = () => import('@/pages/setting/Setting.vue')
@@ -16,7 +14,7 @@ const appRoutes: RouteRecordRaw[] = [
     path: '/zero',
     name: 'zero',
     component: import('@/pages/forMoon/zero.vue'),
-    // meta: { keepAlive: true }
+    meta: { keepAlive: true },
   },
   {
     path: '/setting',
