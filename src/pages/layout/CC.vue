@@ -1,13 +1,5 @@
 <template>
-  <v-navigation-drawer
-    v-model="app.showControlCenter"
-    location="right"
-    hide-overlay
-    temporary
-    width="300"
-    floating
-    class="bg-surface"
-  >
+  <v-navigation-drawer v-model="app.showControlCenter" location="right" temporary width="300" class="bg-surface">
     <v-toolbar density="compact" color="surface">
       <v-toolbar-title class="text-caption font-weight-bold text-onSurfaceVariant">{{
         $t('common.shortcut')
