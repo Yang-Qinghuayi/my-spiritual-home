@@ -7,7 +7,6 @@ const service = yofetch.create({
 
 // direct return response data
 export const request = <T>(url: string | Options, config?: Options) => {
-  console.log('request', url)
   return service.request<T>(url, config, 'get').then((response) => {
     const { data, ok } = response
     const { code, status, body } = data as any

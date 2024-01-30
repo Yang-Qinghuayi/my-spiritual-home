@@ -1,8 +1,8 @@
 <template>
   <div class="nvbar">
-    <div class="nav-item x1" @click="go('/library')">我的</div>
+    <div class="nav-item x3" @click="go('/one')">往月</div>
+    <div class="nav-item x1" @click="go('/mine')">我的</div>
     <div class="nav-item x2" @click="go('/home')">推荐</div>
-    <!-- <div class="nav-item x3" @click="go('/explore')">发现</div> -->
     <div class="nav-item x3" @click="go('/searchPage')">搜索</div>
     <div class="nav-item x4" @click="go('/settings')">设置</div>
   </div>

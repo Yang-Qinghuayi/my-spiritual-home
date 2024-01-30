@@ -8,8 +8,18 @@ const Home = () => import('@/pages/Home.vue')
 const one = () => import('@/pages/forMoon/one.vue')
 const two = () => import('@/pages/forMoon/two.vue')
 const Setting = () => import('@/pages/setting/Setting.vue')
-
+import Discover from '@/pages/discover/Discover.vue'
 const appRoutes: RouteRecordRaw[] = [
+  {
+    path: '/mine',
+    name: 'mine',
+    component: Discover,
+    meta: {
+      // requireLogin: true,
+      keepAlive: true,
+      savePosition: true,
+    },
+  },
   {
     path: '/zero',
     name: 'zero',
@@ -51,7 +61,7 @@ export function useRouter(app: App) {
         name: 'Home',
         component: Home,
         children: appRoutes,
-        redirect: { path: '/zero' },
+        redirect: { path: '/mine' },
       },
       {
         path: '/:pathMatch(.*)*',

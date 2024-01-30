@@ -1,7 +1,7 @@
 <template>
   <v-app class="material-you">
     <!-- <AppCC /> -->
-    <!-- 左边 -->
+    <!-- 右边 -->
     <app-nav class="material-you-nav" />
     <!-- 头顶 -->
     <app-header class="material-you-header" />

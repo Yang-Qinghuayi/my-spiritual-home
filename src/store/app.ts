@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { reactive, toRefs } from 'vue'
 
 import { useUserStore } from '@/store/user'
-import { WindowState } from '@/util/enum'
+// import { useWallHavenStore } from '@/store/wallhaven'
 
 export interface AppState {
   showControlCenter: boolean
@@ -11,7 +11,7 @@ export interface AppState {
   showPlaying: boolean
   showLyric: boolean
   showSearch: boolean
-  windowState: WindowState
+  showHaven: boolean
 }
 export const useAppStore = defineStore('app', {
   state: () => {
@@ -22,7 +22,7 @@ export const useAppStore = defineStore('app', {
       showCommandPalette: false,
       showLyric: false,
       showSearch: false,
-      windowState: WindowState.NORMAL,
+      showHaven: false,
     })
     return {
       ...toRefs(state),
@@ -31,7 +31,9 @@ export const useAppStore = defineStore('app', {
   actions: {
     async init() {
       const userStore = useUserStore()
+      // const wallHavenStore = useWallHavenStore()
       await userStore.fetch()
+      // await wallHavenStore.fetch()
     },
   },
 })
