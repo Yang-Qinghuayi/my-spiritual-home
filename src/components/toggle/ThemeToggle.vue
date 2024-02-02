@@ -1,11 +1,12 @@
 <template>
-  <v-btn icon @click="toggleTheme">
+  <v-btn variant="flat" icon @click="toggleTheme">
     <LottieIcon
       ref="lottieIcon"
       class="lottie-icon onSurface--text"
       :options="state.modeOptions"
       :width="20"
       :height="20"
+      style="position: relative; left: -1.5px"
       @anim-created="handleAnimation"
       @anim-updated="handleAnimationUpdated"
     />
@@ -17,7 +18,8 @@ import { computed, reactive, ref, watchEffect } from 'vue'
 import { useTheme } from 'vuetify'
 
 import { APPEARANCE, useSettingStore } from '@/store/setting'
-import animationJSONData from '@/util/animationData.json'
+import darkToLight from '@/util/lottie-assets/darktolight.json'
+import lightToDark from '@/util/lottie-assets/lighttodark.json'
 
 const lottieIcon = ref<null>(null)
 const state = reactive<{
@@ -45,9 +47,9 @@ const isDark = computed((): boolean => {
 watchEffect(
   () => {
     if (isDark.value) {
-      animation(animationJSONData['dark-mode-to-light-mode'])
+      animation(darkToLight)
     } else {
-      animation(animationJSONData['light-mode-to-dark-mode'])
+      animation(lightToDark)
     }
   },
   {

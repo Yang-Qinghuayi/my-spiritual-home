@@ -1,6 +1,6 @@
 const isElectron = () => {
   // Renderer process
-  if (typeof window !== 'undefined' && typeof window.process === 'object' && window.process.type === 'renderer') {
+  if (typeof window !== 'undefined' && typeof window.process === 'object') {
     return true
   }
 
@@ -24,10 +24,10 @@ export default {
     return isElectron() && process.platform === 'linux'
   },
   renderer: () => {
-    return isElectron() && process.type === 'renderer'
+    // return isElectron() && process.type === 'renderer'
   },
   // Checks if we are in main process
   main: () => {
-    return isElectron() && process.type === 'browser'
+    // return isElectron() && process.type === 'browser'
   },
 }

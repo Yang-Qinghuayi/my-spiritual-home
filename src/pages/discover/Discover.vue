@@ -1,10 +1,9 @@
 <template>
-  <div>kiss</div>
-  <!-- <div>
+  <div>
     <discover-loader v-if="state.loading" />
     <section v-else class="discover d-flex flex-column gap-6">
       <Col :title="welcome" h-class="font-weight-bold text-h6">
-        <ShortcutGrid />
+        <!-- <ShortcutGrid /> -->
         <template #more>
           <v-btn icon size="x-small" variant="tonal" color="tertiary" @click="config = !config">
             <v-icon> {{ mdiPaletteOutline }} </v-icon>
@@ -31,14 +30,17 @@
       </Col>
     </section>
     <discover-config v-model="config" />
-  </div> -->
+  </div>
 </template>
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { mdiPaletteOutline } from '@mdi/js'
 import { storeToRefs } from 'pinia'
+import { computed, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { personalizedPlaylist, personalizedPodcast, personalizedRadar, personalizedSong } from '@/api/personalized'
+import Cover from '@/components/cover/Cover.vue'
+import Col from '@/components/layout/Col.vue'
 import useAjaxReloadHook from '@/hooks/useAjaxReload'
 import useScrollToTop from '@/hooks/useScrollToTop'
 import { useDefinedItems } from '@/pages/discover/useDiscover'
@@ -47,7 +49,7 @@ import { COLUMNS, useHomeConfigStore } from '@/store/homeConfig'
 import { useUserStore } from '@/store/user'
 import type { Playlist, Podcast, Track } from '@/types'
 
-import ShortcutGrid from './shortcuts/ShortcutGrid.vue'
+// import ShortcutGrid from './shortcuts/ShortcutGrid.vue'
 interface RootState {
   playLists: Playlist[]
   radarPlayLists: Playlist[]
@@ -116,4 +118,4 @@ const fetch = async () => {
 }
 fetch()
 useAjaxReloadHook('discover', fetch)
-</script> -->
+</script>
