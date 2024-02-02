@@ -63,7 +63,8 @@ export default defineConfig(({ command, mode }) => {
       port: 5173,
       proxy: {
         '/api': {
-          target: `http://localhost:12139`,
+          // target: `https://111.230.41.177:3000`,
+          target: `http://111.230.41.177:3000`,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
