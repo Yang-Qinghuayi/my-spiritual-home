@@ -20,6 +20,7 @@
     "@vueuse/gesture": "^2.0.0-beta.1",
     "@vueuse/motion": "^2.0.0",
     "NeteaseCloudMusicApi": "git+https://github.com/GuMengYu/NeteaseCloudMusicApi.git#v-player",
+    "axios": "^1.6.7",
     "dotenv": "^16.0.1",
     "http-proxy-agent": "^6.0.1",
     "http-proxy-middleware": "^2.0.6",

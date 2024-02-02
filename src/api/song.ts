@@ -1,5 +1,3 @@
-// import { ipcRenderer } from 'electron'
-
 import type { QUALITY_LEVEL } from '@/store/setting'
 import { useSettingStore } from '@/store/setting'
 import type { Track } from '@/types'

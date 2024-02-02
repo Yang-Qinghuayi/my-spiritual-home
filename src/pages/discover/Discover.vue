@@ -35,21 +35,17 @@
 <script setup lang="ts">
 import { mdiPaletteOutline } from '@mdi/js'
 import { storeToRefs } from 'pinia'
-import { computed, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { personalizedPlaylist, personalizedPodcast, personalizedRadar, personalizedSong } from '@/api/personalized'
-import Cover from '@/components/cover/Cover.vue'
-import Col from '@/components/layout/Col.vue'
 import useAjaxReloadHook from '@/hooks/useAjaxReload'
-import useScrollToTop from '@/hooks/useScrollToTop'
 import { useDefinedItems } from '@/pages/discover/useDiscover'
 import DiscoverConfig from '@/pages/modal/DiscoverConfig.vue'
 import { COLUMNS, useHomeConfigStore } from '@/store/homeConfig'
 import { useUserStore } from '@/store/user'
 import type { Playlist, Podcast, Track } from '@/types'
 
-// import ShortcutGrid from './shortcuts/ShortcutGrid.vue'
+import ShortcutGrid from './shortcuts/ShortcutGrid.vue'
 interface RootState {
   playLists: Playlist[]
   radarPlayLists: Playlist[]

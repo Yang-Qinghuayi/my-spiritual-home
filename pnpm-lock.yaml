@@ -17,6 +17,9 @@ dependencies:
   NeteaseCloudMusicApi:
     specifier: git+https://github.com/GuMengYu/NeteaseCloudMusicApi.git#v-player
     version: git/github.com+GuMengYu/NeteaseCloudMusicApi/628b93b4a24f70e3cd6d21e1588da2b86694de07
+  axios:
+    specifier: ^1.6.7
+    version: 1.6.7
   dotenv:
     specifier: ^16.0.1
     version: 16.4.1

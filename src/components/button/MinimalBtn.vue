@@ -8,10 +8,7 @@
 </template>
 <script setup lang="ts">
 import { mdiCreditCardChipOutline } from '@mdi/js'
-// import { useIpcRenderer } from '@vueuse/electron'
 import { useRouter } from 'vue-router'
-
-// const ipcRenderer = useIpcRenderer()
 
 const router = useRouter()
 async function minimal() {
