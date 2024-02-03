@@ -108,10 +108,13 @@
     </div>
   </div>
 </template>
+
 <script lang="ts" setup>
 import { mdiPlus } from '@mdi/js'
 import { groupBy } from 'lodash-es'
 import { storeToRefs } from 'pinia'
+// 在生命周期开始输出playlist
+import { onBeforeMount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { useToast } from 'vue-toastification'
@@ -131,11 +134,16 @@ import ListenRanking from './listen-ranking/index.vue'
 const { t } = useI18n()
 
 const route = useRoute()
+const player = []
 // const player = usePlayer()
 const userStore = useUserStore()
 const toast = useToast()
 useScrollToTop()
 const { playlists, uid } = storeToRefs(userStore)
+onBeforeMount(() => {
+  console.log(playlists.value)
+  userStore.fetch()
+})
 
 const filteredPlaylist = computed(() => {
   return groupBy(playlists.value, (i) => {

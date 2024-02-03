@@ -18,8 +18,7 @@ const isShowWindowControl = computed(() => {
   return (is.windows() || is.linux()) && mdAndUp.value
 })
 
-function handleToggleMaximize() {
-}
+function handleToggleMaximize() {}
 const height = computed(() => {
   return is.macOS() ? 6 : void 0
 })

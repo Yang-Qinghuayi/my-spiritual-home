@@ -21,11 +21,15 @@ export interface UserState {
 export const useUserStore = defineStore({
   id: 'user',
   state: () => {
-    return useLocalStorage('user', {
+    const accountx = useLocalStorage('user', {
+      account: null,
+    })
+
+    return {
       account: null,
       likes: [],
       playlists: [],
-    } as UserState)
+    } as UserState
   },
   getters: {
     logged: (state) => {
@@ -46,6 +50,7 @@ export const useUserStore = defineStore({
   },
   actions: {
     async fetch() {
+      this.account = await getAccount()
       if (this.logged) {
         const [, likesRes, playlistRes] = await Promise.all([
           this.refreshAccount(),
@@ -65,6 +70,7 @@ export const useUserStore = defineStore({
         uid: this.uid,
       })
       this.playlists = playlist
+      console.log('kiss')
     },
     async refreshAccount() {
       const account = await getAccount()
