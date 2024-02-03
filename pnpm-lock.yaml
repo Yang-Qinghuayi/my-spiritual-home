@@ -109,9 +109,6 @@ devDependencies:
   dayjs:
     specifier: ^1.11.1
     version: 1.11.10
-  eslint:
-    specifier: ^8.13.0
-    version: 8.56.0
   eslint-config-prettier:
     specifier: ^8.5.0
     version: 8.10.0(eslint@8.56.0)
@@ -3078,6 +3075,7 @@ packages:
 
   /argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+    requiresBuild: true
     dev: true
 
   /args@5.0.3:
