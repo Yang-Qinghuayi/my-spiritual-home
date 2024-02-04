@@ -9,7 +9,7 @@
 import useInForeground from '@/hooks/useInForeground'
 import { usePlayer } from '@/player/player'
 import { useAppStore } from '@/store/app'
-// const player = usePlayer()
+const player = usePlayer()
 
 // space control
 const { isActive: isInMv } = useInForeground('mv')
@@ -18,7 +18,7 @@ useEventListener(document, 'keydown', (e) => {
   if (e.code === 'Space') {
     if (target.tagName !== 'BODY' || isInMv.value) return false
     e.preventDefault()
-    // player.togglePlay()
+    player.togglePlay()
   }
 })
 

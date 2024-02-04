@@ -8,7 +8,8 @@ import { GridType } from '@/hooks/useResponsiveGrid'
 import { usePlayer } from '@/player/player'
 import type { Album, Artist, MV, Playlist, Track } from '@/types'
 const toast = useToast()
-const player = usePlayer()
+const player = []
+// const player = usePlayer()
 
 const searchTypes = {
   song: { type: 1, limit: 4 },

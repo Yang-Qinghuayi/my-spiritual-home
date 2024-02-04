@@ -53,8 +53,8 @@ import { usePlayer } from '@/player/player'
 import { usePlayerStore } from '@/store/player'
 import { usePlayQueueStore } from '@/store/playQueue'
 import { sizeOfImage, toHttps } from '@/util/fn'
-// const player = usePlayer()
-const player = []
+const player = usePlayer()
+// const player = []
 const playStore = usePlayerStore()
 const playQueue = usePlayQueueStore()
 const loading = ref<boolean>(false)

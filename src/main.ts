@@ -1,8 +1,8 @@
-import './styles/animate.scss'
-import './styles/global.scss'
-import './styles/utility.scss'
-
+import { GesturePlugin } from '@vueuse/gesture'
 import { createApp } from 'vue'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import VueVirtualScroller from 'vue-virtual-scroller'
 
 import App from './App.vue'
 // directives
@@ -12,6 +12,7 @@ import { useContextMenu } from './plugins/contextmenu'
 import { useDayjs } from './plugins/dayjs'
 import { useI18n } from './plugins/i18n'
 import { usePinia } from './plugins/pinia'
+import { usePlayer } from './plugins/player'
 import { useToast } from './plugins/toast'
 import { useVuetify } from './plugins/vuetify'
 import { useFonts } from './plugins/webfontloader'
@@ -19,13 +20,24 @@ import { useRouter } from './router'
 
 // 加载css fonts等资源
 useFonts()
+import './styles/animate.scss'
+import './styles/global.scss'
+import './styles/utility.scss'
+import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
+import './util/pipLyric'
+
+import is from '@/util/is'
 const app = createApp(App)
-useRouter(app)
+const router = useRouter(app)
+
+app.use(VueVirtualScroller)
+app.use(GesturePlugin)
 usePinia(app)
 useVuetify(app)
 useI18n(app)
+usePlayer(app)
 useToast(app)
 useDirectives(app)
 useDayjs(app)
 useContextMenu(app)
-app.mount('#app')
+app.mount('#app').$nextTick()
