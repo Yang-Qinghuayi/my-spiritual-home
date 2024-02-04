@@ -17,8 +17,7 @@ const toast = useToast()
 const { t } = useI18n()
 const userStore = useUserStore()
 const playerStore = usePlayerStore()
-const player = []
-// const player = usePlayer()
+const player = usePlayer()
 
 const { logged, account } = storeToRefs(userStore)
 const props = defineProps({

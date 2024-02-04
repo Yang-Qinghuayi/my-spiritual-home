@@ -134,8 +134,7 @@ import ListenRanking from './listen-ranking/index.vue'
 const { t } = useI18n()
 
 const route = useRoute()
-const player = []
-// const player = usePlayer()
+const player = usePlayer()
 const userStore = useUserStore()
 const toast = useToast()
 useScrollToTop()

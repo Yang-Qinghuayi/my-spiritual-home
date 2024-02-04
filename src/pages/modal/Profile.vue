@@ -85,7 +85,7 @@ function formatDate(datetime: string | number, format = 'YYYY.MM.DD') {
           <div class="d-flex flex-column text-start ml-3">
             <div class="d-flex gap-1 w-full">
               <span class="font-weight-medium line-clamp-1">{{ profile.nickname }} </span>
-              <v-img v-if="isVip" width="36" max-width="36" :src="vipInfo.redVipDynamicIconUrl"></v-img>
+              <v-img v-if="isVip" width="36" max-width="36" :src="vipInfo.redVipLevelIcon"></v-img>
             </div>
 
             <span class="text-caption line-clamp-2">
