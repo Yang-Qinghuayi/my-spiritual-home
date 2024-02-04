@@ -59,8 +59,8 @@ export function useFetchWallpapers() {
       wallpapers.value = data
       meta.value = _meta
     } catch (e) {
-      console.error(e)
-      toast.error('wallhaven 无法访问，检查代理proxy设置')
+      // console.error(e)
+      // toast.error('wallhaven 无法访问，检查代理proxy设置')
       error.value = e
     } finally {
       loading.value = false

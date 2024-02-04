@@ -31,7 +31,7 @@ import is from '@/util/is'
 
 import AppBottomNav from './layout/BottomNav.vue'
 import AppCC from './layout/CC.vue'
-// import AppPlaybar from './layout/Footer.vue'
+import AppPlaybar from './layout/Footer.vue'
 import AppHeader from './layout/Header.vue'
 import AppMobilePlaybar from './layout/MobilePlaybar.vue'
 import AppNav from './layout/Navbar.vue'
