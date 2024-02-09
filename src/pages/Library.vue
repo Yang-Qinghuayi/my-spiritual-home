@@ -139,10 +139,6 @@ const userStore = useUserStore()
 const toast = useToast()
 useScrollToTop()
 const { playlists, uid } = storeToRefs(userStore)
-onBeforeMount(() => {
-  console.log(playlists.value)
-  userStore.fetch()
-})
 
 const filteredPlaylist = computed(() => {
   return groupBy(playlists.value, (i) => {

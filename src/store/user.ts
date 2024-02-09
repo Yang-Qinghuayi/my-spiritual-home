@@ -21,15 +21,11 @@ export interface UserState {
 export const useUserStore = defineStore({
   id: 'user',
   state: () => {
-    const accountx = useLocalStorage('user', {
-      account: null,
-    })
-
-    return {
+    return useLocalStorage('userx', {
       account: null,
       likes: [],
       playlists: [],
-    } as UserState
+    } as UserState)
   },
   getters: {
     logged: (state) => {

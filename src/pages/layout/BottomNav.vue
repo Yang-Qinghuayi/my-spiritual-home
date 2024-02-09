@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { mdiAlbum, mdiCog, mdiHome, mdiRhombusSplit } from '@mdi/js'
+import AppAccount from '@/components/button/Account.vue'
+import { useDisplay, useTheme } from 'vuetify'
 
+const display = useDisplay()
+const { xs, smAndUp } = display
 // coding here
 </script>
 <template>
@@ -23,12 +27,14 @@ import { mdiAlbum, mdiCog, mdiHome, mdiRhombusSplit } from '@mdi/js'
       </div>
       <span class="bar-label">Library</span>
     </v-btn>
-    <v-btn value="setting" color="secondaryContainer" to="/setting">
+    <app-account variant="tonal"/>
+
+    <!-- <v-btn value="setting" color="secondaryContainer" to="/setting">
       <div class="bar-icon rounded-xl">
         <v-icon>{{ mdiCog }}</v-icon>
       </div>
       <span class="bar-label">Setting</span>
-    </v-btn>
+    </v-btn> -->
   </v-bottom-navigation>
 </template>
 <style scoped lang="scss">
