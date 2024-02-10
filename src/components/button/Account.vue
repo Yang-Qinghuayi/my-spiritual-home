@@ -1,10 +1,10 @@
 <template>
-  <v-btn  icon class="account-avatar">
+  <v-btn v-if="logged" icon class="account-avatar" @click="toPage('/library')">
     <v-avatar size="40">
       <v-img :aspect-ratio="1" contain :src="avatarUrl" :lazy-src="placeholderUrl" />
     </v-avatar>
   </v-btn>
-  <v-btn  icon flat @click="showLogin = !showLogin">
+  <v-btn v-else icon flat @click="showLogin = !showLogin">
     <v-icon>
       {{ mdiAccountCircle }}
     </v-icon>
@@ -25,4 +25,11 @@ const { showLogin, showControlCenter } = storeToRefs(appStore)
 const { logged, account } = storeToRefs(userStore)
 
 const avatarUrl = computed(() => toHttps(account.value?.profile.avatarUrl ?? ''))
+
+import { useRouter } from 'vue-router'
+// 点击跳转函数,使用router
+const router = useRouter()
+const toPage = (path: string) => {
+  router.push(path)
+}
 </script>

@@ -11,7 +11,7 @@
       position: 'fixed',
       right: '16px',
       bottom: '78px',
-      borderRadius: '16px',
+      borderRadius: '10px',
       height: '64px',
       zIndex: 1,
       transtion: 'all 0.3s ease-in-out',

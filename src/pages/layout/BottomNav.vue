@@ -15,19 +15,19 @@ const { xs, smAndUp } = display
       </div>
       <span class="bar-label">Home</span>
     </v-btn>
+    <app-account variant="tonal" />
     <v-btn value="explore" color="secondaryContainer" to="/explore">
       <div class="bar-icon rounded-xl">
         <v-icon>{{ mdiAlbum }}</v-icon>
       </div>
       <span class="bar-label">Explore</span>
     </v-btn>
-    <v-btn value="library" color="secondaryContainer" to="/library">
+    <!-- <v-btn value="library" color="secondaryContainer" to="/library">
       <div class="bar-icon rounded-xl">
         <v-icon>{{ mdiRhombusSplit }}</v-icon>
       </div>
       <span class="bar-label">Library</span>
-    </v-btn>
-    <app-account variant="tonal"/>
+    </v-btn> -->
 
     <!-- <v-btn value="setting" color="secondaryContainer" to="/setting">
       <div class="bar-icon rounded-xl">

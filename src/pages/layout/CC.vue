@@ -66,13 +66,11 @@
 import {
   mdiBrightness4,
   mdiBrightness6,
-  mdiClose,
   mdiCog,
   mdiDockBottom,
   mdiPageLayoutSidebarLeft,
   mdiTestTube,
 } from '@mdi/js'
-// import { useIpcRenderer } from '@vueuse/electron'
 import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
 import { useTheme } from 'vuetify'
@@ -86,7 +84,6 @@ const setting = useSettingStore()
 const theme = useTheme()
 const router = useRouter()
 const { miniPlayer, navPosition } = storeToRefs(setting)
-// const ipcRenderer = useIpcRenderer()
 const darkMode = computed<boolean>({
   get() {
     return theme.current.value.dark

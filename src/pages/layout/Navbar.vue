@@ -28,10 +28,7 @@
       </v-list>
       <transition name="slide-fade-y">
         <div v-if="rail" class="pb-2 gap-2 no-drag-area px-2 d-flex justify-center flex-column align-center">
-          <div @click="toPage('/library')">
-            <app-account variant="tonal" />
-          </div>
-          <theme-toggle />
+          <app-account variant="tonal" />
           <!-- 设置按钮 -->
           <div
             @click="showControlCenter = !showControlCenter"
