@@ -79,7 +79,7 @@ async function triggerSearch() {
 </script>
 <template>
   <div class="searching d-flex flex-column">
-    <div class="d-flex align-center mb-6">
+    <!-- <div class="d-flex align-center mb-6">
       <back-btn variant="flat" />
       <v-text-field
         v-model="keyword"
@@ -90,6 +90,16 @@ async function triggerSearch() {
         variant="underlined"
         clearable
         single-line
+        @keydown.enter="triggerSearch"
+      />
+    </div> -->
+    <div class="search-container">
+      <input
+        loading="loading"
+        type="text"
+        id="searchInput"
+        v-model="keyword"
+        placeholder="搜索"
         @keydown.enter="triggerSearch"
       />
     </div>
@@ -150,6 +160,16 @@ async function triggerSearch() {
 </template>
 <style lang="scss" scoped>
 .search-input {
+  padding-left: 50px;
+  width: 100%;
+  height: 80px;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: #15080b;
+  background-color: #e8f0fe;
   :deep(.v-field--variant-underlined) {
     // box-shadow: none;
     border-radius: 8px;
@@ -157,7 +177,7 @@ async function triggerSearch() {
 
     .v-field__input {
       padding-top: 0px;
-      font-size: 0.875rem;
+      font-size: 1.2rem;
       font-weight: 500;
     }
 
@@ -171,5 +191,43 @@ async function triggerSearch() {
     align-items: center;
     margin-inline-start: 8px;
   }
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  // width: 70vw;
+  margin: 0 5vw;
+}
+
+#searchInput {
+  // color: #4c0013;
+  padding-left: 50px;
+  width: 100%;
+  height: 80px;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: #15080b;
+  background-color: #e8f0fe;
+  // box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+#searchInput::placeholder {
+  color: #444746;
+  /* Placeholder text color */
+  font-style: italic;
+  /* Placeholder text style, e.g., italic */
+  font-weight: bold;
+}
+
+#searchInput:focus {
+  background-color: #e4f3ee;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  // outline: olive;
 }
 </style>
