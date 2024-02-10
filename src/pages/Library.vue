@@ -1,5 +1,6 @@
 <template>
   <div>
+    <account-extended-fab class="mb-4" />
     <library-loader v-if="loading" />
     <div v-else>
       <v-btn-toggle v-model="current" color="primary" variant="text">

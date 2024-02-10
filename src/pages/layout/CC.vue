@@ -13,13 +13,9 @@
         $t('common.shortcut')
       }}</v-toolbar-title>
       <v-spacer />
-      <v-btn icon size="small" class="mr-1" @click="app.showControlCenter = false">
-        <v-icon size="small"> {{ mdiClose }} </v-icon>
-      </v-btn>
     </v-toolbar>
     <v-divider />
     <div class="pa-3">
-      <account-extended-fab class="mb-4" />
       <v-row dense>
         <v-col class="d-flex">
           <switch-card

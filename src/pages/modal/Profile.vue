@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { mdiAccountEdit, mdiClose, mdiCog, mdiFaceManProfile, mdiGithub, mdiLogout } from '@mdi/js'
-// import { useIpcRenderer } from '@vueuse/electron'
 import dayjs from 'dayjs'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
@@ -39,12 +38,7 @@ const isVip = computed(() => {
   return account.value?.profile.vipType === 11
 })
 const goto = (url: string) => {
-  if (is.electron()) {
-    // const ipcRenderer = useIpcRenderer()
-    // ipcRenderer.invoke('open-url', url)
-  } else {
     window.open(url, '_blank')
-  }
 }
 
 function dispatch(type: string) {
@@ -85,7 +79,6 @@ function formatDate(datetime: string | number, format = 'YYYY.MM.DD') {
           <div class="d-flex flex-column text-start ml-3">
             <div class="d-flex gap-1 w-full">
               <span class="font-weight-medium line-clamp-1">{{ profile.nickname }} </span>
-              <v-img v-if="isVip" width="36" max-width="36" :src="vipInfo.redVipLevelIcon"></v-img>
             </div>
 
             <span class="text-caption line-clamp-2">
@@ -93,19 +86,6 @@ function formatDate(datetime: string | number, format = 'YYYY.MM.DD') {
             </span>
           </div>
         </v-card>
-        <v-square-btn
-          class="position-absolute"
-          color="primaryContainer"
-          variant="flat"
-          elevation="1"
-          size="large"
-          rounded="md"
-          style="top: 64px; right: 28px"
-          @click="goto('https://music.163.com/#/user/update')"
-        >
-          <v-icon> {{ mdiAccountEdit }}</v-icon>
-          <v-tooltip activator="parent" location="top"> {{ $t('main.setting.manage_account') }} </v-tooltip>
-        </v-square-btn>
       </div>
       <v-list-item height="64" class="mx-6 px-3 bg-surfaceVariant rounded-lg" @click="dispatch('settings')">
         <template #prepend>
@@ -124,17 +104,6 @@ function formatDate(datetime: string | number, format = 'YYYY.MM.DD') {
         <v-list-item-title class="ml-2">{{ $t('message.logout') }}</v-list-item-title>
       </v-list-item>
       <div class="mt-auto py-4">
-        <span class="d-flex justify-center align-center">
-          <v-btn variant="text" size="small"> {{ $t('message.disclaimer') }} </v-btn>
-          ·
-          <v-btn
-            variant="text"
-            size="small"
-            class="d-flex align-center"
-            @click="goto('https://github.com/GuMengYu/v-player')"
-            ><v-icon small>{{ mdiGithub }}</v-icon> github</v-btn
-          >
-        </span>
       </div>
     </v-card>
   </v-dialog>

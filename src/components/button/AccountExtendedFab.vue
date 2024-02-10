@@ -16,10 +16,6 @@
         <span class="font-weight-medium line-clamp-1">{{ profile.nickname }} </span>
         <!-- <v-img v-if="isVip" width="36" max-width="36" :src="vipInfo.redVipLevelIcon"></v-img> -->
       </div>
-
-      <span v-if="vipInfo" class="text-caption line-clamp-2">
-        {{ t('message.vip_expire', [formatDate(vipInfo.associator.expireTime)]) }}
-      </span>
     </div>
   </v-card>
   <user-profile v-model="showProfile" />
