@@ -37,12 +37,12 @@
   "main": {
     "nav": {
       "search": "搜索",
-      "discover": "主页",
+      "discover": "发现",
       "explore": "广场",
       "fm": "私人FM",
       "podcast": "播客",
       "daily": "日推",
-      "stars": "音乐库",
+      "stars": "我的",
       "radio": "我的电台",
       "created_list": "创建的歌单",
       "start_list": "收藏的歌单",

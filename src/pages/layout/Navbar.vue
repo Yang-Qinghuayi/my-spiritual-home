@@ -60,12 +60,6 @@ const isClient = is.electron()
 const nav = computed(() => {
   const list = [
     {
-      icon: mdiMagnify,
-      val: 'search',
-      title: 'main.nav.search',
-      to: '/search',
-    },
-    {
       icon: mdiHome,
       val: 'discover',
       title: 'main.nav.discover',
@@ -78,19 +72,21 @@ const nav = computed(() => {
       to: '/explore',
     },
     {
-      icon: mdiPodcast,
-      val: 'explore',
-      title: 'main.nav.podcast',
-      to: '/podcast-center',
+      icon: mdiMagnify,
+      val: 'search',
+      title: 'main.nav.search',
+      to: '/search',
     },
   ]
   if (logged.value) {
-    list.push({
+    list.unshift({
       icon: mdiGamepad,
       val: 'stars',
       title: 'main.nav.stars',
       to: '/library',
     })
+
+
   }
   return list
 })
