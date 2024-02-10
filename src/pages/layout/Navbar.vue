@@ -28,8 +28,18 @@
       </v-list>
       <transition name="slide-fade-y">
         <div v-if="rail" class="pb-2 gap-2 no-drag-area px-2 d-flex justify-center flex-column align-center">
-          <app-account variant="tonal" />
+          <div @click="toPage('/library')">
+            <app-account variant="tonal" />
+          </div>
           <theme-toggle />
+          <!-- 设置按钮 -->
+          <div
+            @click="showControlCenter = !showControlCenter"
+            class="d-flex justify-center align-center"
+            :style="{ paddingBottom: '30px', paddingTop: '10px' }"
+          >
+            <v-icon size="small" :icon="mdiCog" color="primary"></v-icon>
+          </div>
         </div>
       </transition>
     </div>
@@ -37,9 +47,11 @@
 </template>
 
 <script setup lang="ts">
-import { mdiEarth, mdiGamepad, mdiHome, mdiMagnify, mdiPodcast } from '@mdi/js'
+import { mdiEarth, mdiGamepad, mdiHome, mdiMagnify, mdiCog } from '@mdi/js'
 import { storeToRefs } from 'pinia'
-
+import { useAppStore } from '@/store/app'
+const appStore = useAppStore()
+const { showLogin, showControlCenter } = storeToRefs(appStore)
 import AppAccount from '@/components/button/Account.vue'
 import AggregateExtendBtn from '@/components/button/AggregateExtendBtn.vue'
 import { useSettingStore } from '@/store/setting'
@@ -78,19 +90,24 @@ const nav = computed(() => {
       to: '/search',
     },
   ]
-  if (logged.value) {
-    list.unshift({
-      icon: mdiGamepad,
-      val: 'stars',
-      title: 'main.nav.stars',
-      to: '/library',
-    })
-
-
-  }
+  // if (logged.value) {
+  //   list.unshift({
+  //     icon: mdiGamepad,
+  //     val: 'stars',
+  //     title: 'main.nav.stars',
+  //     to: '/library',
+  //   })
+  // }
   return list
 })
 const navStyle = computed(() => {
   return miniPlayer.value ? { borderRight: '1px solid rgba(var(--v-border-color), var(--v-border-opacity))' } : {}
 })
+
+import { useRouter } from 'vue-router'
+// 点击跳转函数,使用router
+const router = useRouter()
+const toPage = (path: string) => {
+  router.push(path)
+}
 </script>
