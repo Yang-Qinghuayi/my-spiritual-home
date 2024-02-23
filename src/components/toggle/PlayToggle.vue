@@ -36,9 +36,8 @@ function handleAnimation(animation: any) {
   <v-square-btn
     :loading="loadingTrack"
     variant="flat"
-    color="primaryContainer"
+    color="#bdbd49"
     class="mx-2"
-    elevation="1"
     :style="{
       transition: 'background-color, border-radius 350ms cubic-bezier(0.4, 0, 0.2, 1)',
       height: '50px',
@@ -49,8 +48,8 @@ function handleAnimation(animation: any) {
   >
     <lottie-icon
       v-show="!loadingTrack"
-      class="lottie-icon text-onPrimaryContainer"
-      style="position: relative; left: -1.5px"
+      class="rgb(54, 93, 127)on text-onPrimaryContainer"
+      style="position: relative; left: -1.5px;"
       :options="playOptions"
       :width="36"
       :height="30"

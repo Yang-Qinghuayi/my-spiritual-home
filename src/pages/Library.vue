@@ -1,6 +1,7 @@
 <template>
   <div>
     <account-extended-fab class="mb-4" />
+    <!-- <ShortcutGrid /> -->
     <library-loader v-if="loading" />
     <div v-else>
       <v-btn-toggle v-model="current" color="primary" variant="text">
@@ -159,12 +160,11 @@ enum TYPES {
 const tabs = computed(() => {
   return [
     { key: TYPES.PLAYLIST, name: t('main.playlists') },
-    { key: TYPES.ALBUM, name: t('main.albums') },
-    { key: TYPES.ARTIST, name: t('main.artists') },
-    { key: TYPES.PODCAST, name: t('main.podcasts') },
-    { key: TYPES.MV, name: t('main.mvs') },
+    // { key: TYPES.MV, name: t('main.mvs') },
     { key: TYPES.CLOUD, name: t('main.disk') },
     { key: TYPES.RANKING, name: t('main.ranking') },
+    { key: TYPES.ALBUM, name: t('main.albums') },
+    { key: TYPES.ARTIST, name: t('main.artists') },
   ]
 })
 const current = ref(TYPES.PLAYLIST)
@@ -265,16 +265,6 @@ async function loadData(type: 'album' | 'mv' | 'podcast' | 'artist') {
       pagination.artist.more = moreData.hasMore
       break
     }
-    case 'podcast': {
-      if (moreData.djRadios?.length) {
-        data.podcasts.push(...moreData.djRadios)
-        if (moreData.hasMore) {
-          pagination.podcast.start = data.podcasts.length
-        }
-      }
-      pagination.podcast.more = moreData.hasMore
-      break
-    }
     case 'mv': {
       if (moreData.data?.length) {
         data.mvs.push(...moreData.data)
@@ -317,4 +307,7 @@ async function createNewPlaylist() {
     toast.error(t('message.something_wrong'))
   }
 }
+
+
+import ShortcutGrid from './discover/shortcuts/ShortcutGrid.vue'
 </script>

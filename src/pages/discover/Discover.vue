@@ -24,9 +24,6 @@
             </v-card-subtitle>
           </Cover>
         </card-row>
-        <card-row v-if="i.key === COLUMNS.PODCAST" single-line>
-          <podcast-cover v-for="list in state.podcasts" :key="list.id" :data="list" />
-        </card-row>
       </Col>
     </section>
     <discover-config v-model="config" />
@@ -86,7 +83,8 @@ const welcome = computed(() => {
   } else {
     welcome = t('common.midnight')
   }
-  return `${welcome}${logged.value ? `，${account.value?.profile?.nickname}` : ''}`
+  return `新春快乐  ${logged.value ? `，${account.value?.profile?.nickname}` : ''}`
+  // return `${welcome}${logged.value ? `，${account.value?.profile?.nickname}` : ''}`
 })
 const cols = computed(() => {
   return columnAndSort.value.map((i) => {

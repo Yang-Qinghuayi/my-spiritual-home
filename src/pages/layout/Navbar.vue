@@ -3,9 +3,9 @@
     <div class="px-3 mt-6" :class="{ 'mt-3': isClient, 'mb-1': rail }">
       <drawer-toggle />
     </div>
-    <div v-if="rail" class="d-flex justify-center">
+    <!-- <div v-if="rail" class="d-flex justify-center">
       <aggregate-extend-btn variant="extendFab" />
-    </div>
+    </div> -->
     <div class="content-warp flex-fill" :class="{ 'rail-nav': rail }">
       <v-list class="list-content d-flex flex-column justify-center" rounded :nav="true">
         <v-list-item
@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { mdiEarth, mdiGamepad, mdiHome, mdiMagnify, mdiCog } from '@mdi/js'
+import { mdiEarth, mdiGamepad, mdiHome, mdiMagnify, mdiCog, mdiAlbum, mdiRadar } from '@mdi/js'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 const appStore = useAppStore()
@@ -69,22 +69,28 @@ const isClient = is.electron()
 const nav = computed(() => {
   const list = [
     {
-      icon: mdiHome,
-      val: 'discover',
-      title: 'main.nav.discover',
-      to: '/discover',
-    },
-    {
-      icon: mdiEarth,
-      val: 'explore',
-      title: 'main.nav.explore',
-      to: '/explore',
-    },
-    {
       icon: mdiMagnify,
       val: 'search',
       title: 'main.nav.search',
       to: '/search',
+    },
+    {
+      icon: mdiAlbum,
+      val: 'discover',
+      title: '每日推荐',
+      to: '/daily',
+    },
+    // {
+    //   icon: mdiRadar,
+    //   val: 'explore',
+    //   title: 'main.nav.explore',
+    //   to: '/explore',
+    // },
+    {
+      icon: mdiHome,
+      val: 'discover',
+      title: 'main.nav.discover',
+      to: '/discover',
     },
   ]
   // if (logged.value) {

@@ -3,7 +3,6 @@ import {
   mdiAccountMusic,
   mdiAlbum,
   mdiCalendarToday,
-  mdiDiceMultiple,
   mdiHeart,
   mdiPlaylistMusic,
   mdiPodcast,
