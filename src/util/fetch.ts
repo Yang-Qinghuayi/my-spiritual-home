@@ -1,7 +1,8 @@
 import type { Options } from './yofetch'
 import yofetch from './yofetch'
+// import.meta.env.YQ_Netease_API
 const service = yofetch.create({
-  baseURL: '/api',
+  baseURL:import.meta.env.VITE_NetEast_API,
   // baseURL: 'http://1.14.180.210:3000',
   credentials: 'include',
 })
