@@ -1,8 +1,8 @@
 import type { Options } from './yofetch'
 import yofetch from './yofetch'
 const service = yofetch.create({
-  // baseURL: '/api',
-  baseURL: 'http://1.14.180.210:3000',
+  baseURL: '/api',
+  // baseURL: 'http://1.14.180.210:3000',
   credentials: 'include',
 })
 

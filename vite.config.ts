@@ -17,7 +17,7 @@ const __APP_INFO__ = {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
-  // const env = loadEnv(mode, path.resolve(__dirname, './'))
+  const env = loadEnv(mode, path.resolve(__dirname, './'))
 
   const isDevelopment = command === 'serve'
   const plugins: any = [
@@ -60,12 +60,11 @@ export default defineConfig(({ command, mode }) => {
       __APP_INFO__: JSON.stringify(__APP_INFO__),
     },
     server: {
-      // host: env.VITE_DEV_SERVER_HOST,
-      port: 5173,
+      host: env.VITE_DEV_SERVER_HOST,
+      port: +env.VITE_DEV_SERVER_PORT,
       proxy: {
         '/api': {
-          // target: `https://111.230.41.177:3000`,
-          target: `http://1.14.180.210:3000`,
+          target: `http://${env.VITE_API_SERVER_HOST}:${env.VITE_API_SERVER_PORT}`,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
