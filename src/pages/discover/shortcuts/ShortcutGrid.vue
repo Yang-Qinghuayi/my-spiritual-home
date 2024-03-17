@@ -21,7 +21,6 @@ import { GridType, useResponsiveGrid } from '@/hooks/useResponsiveGrid'
 import type { shortcutType } from '@/store/homeConfig'
 import { SHORTCUTS, useHomeConfigStore } from '@/store/homeConfig'
 import { useUserStore } from '@/store/user'
-// import is from '@/util/is'
 import { specialType } from '@/util/metadata'
 
 import Shortcut from './Shortcut.vue'
@@ -83,49 +82,33 @@ const customIcon = computed(() => {
 
 const shortcutComponents = computed(() => {
   const components: any[] = []
-
-  shortcuts.value.map((shortcut) => {
-    if (shortcut === SHORTCUTS.FAV) {
-      components.push({
+  components.push({
         component: Shortcut,
         data: myFav.value,
         type: 'playlist',
         flag: { color: 'primary', icon: mdiHeart },
       })
-    } else if (shortcut === SHORTCUTS.FM) {
-      components.push({
-        component: ShortcutFM,
-      })
-    } else if (shortcut === SHORTCUTS.DAILY) {
+      // components.push({
+      //   component: ShortcutFM,
+      // })
       components.push({
         component: Shortcut,
         data: state.value.daily,
         type: 'daily',
         flag: { color: 'secondary', icon: mdiCalendarToday },
       })
-    } else if (shortcut === SHORTCUTS.RADAR) {
       components.push({
         component: Shortcut,
         data: state.value.radar,
         type: 'playlist',
         flag: { color: 'tertiary', icon: mdiRadar },
       })
-    } else if (shortcut === SHORTCUTS.RECENT) {
       components.push({
         component: Shortcut,
         data: state.value.recent,
         type: 'recent',
         flag: { color: 'secondary', icon: mdiRecord },
       })
-    } else if (shortcut === SHORTCUTS.PIN && pinPlaylist.value) {
-      components.push({
-        component: Shortcut,
-        data: pinPlaylist.value,
-        type: pinPlaylist.value.type,
-        flag: { color: 'outline', icon: customIcon.value },
-      })
-    }
-  })
   return components
 })
 </script>

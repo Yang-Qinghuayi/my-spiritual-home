@@ -1,14 +1,11 @@
 <template>
   <div>
     <account-extended-fab class="mb-4" />
-    <!-- <ShortcutGrid /> -->
+    <ShortcutGrid />
+
     <library-loader v-if="loading" />
     <div v-else>
-      <v-btn-toggle v-model="current" color="primary" variant="text">
-        <v-btn v-for="tab in tabs" :key="tab.key" rounded="md" :value="tab.key" class="mx-1 px-6">
-          {{ tab.name }}
-        </v-btn>
-      </v-btn-toggle>
+      <!-- 主界面 -->
       <v-window :model-value="current" class="mt-4">
         <v-window-item :value="TYPES.PLAYLIST">
           <Col :title="$t('common.created_playlist')" class="mb-4">
@@ -30,58 +27,8 @@
             </card-row>
           </Col>
         </v-window-item>
-        <v-window-item :value="TYPES.ALBUM">
-          <card-row>
-            <cover v-for="album in data.albums" :key="album.id" :data="album" />
-          </card-row>
-          <div class="d-flex justify-center mt-4">
-            <v-btn v-if="pagination.album.more" rounded variant="outlined" color="primary" @click="loadData('album')"
-              >load more</v-btn
-            >
-          </div>
-        </v-window-item>
-        <v-window-item :value="TYPES.ARTIST">
-          <card-row>
-            <artists-cover v-for="artist in data.artists" :key="artist.id" :artist="artist" />
-          </card-row>
-          <div class="d-flex justify-center mt-4">
-            <v-btn v-if="pagination.artist.more" rounded variant="outlined" color="primary" @click="loadData('artist')"
-              >load more</v-btn
-            >
-          </div>
-        </v-window-item>
-        <v-window-item :value="TYPES.PODCAST">
-          <card-row>
-            <podcast-cover v-for="podcast in data.podcasts" :key="podcast.id" :data="podcast" />
-          </card-row>
-          <div class="d-flex justify-center mt-4">
-            <v-btn
-              v-if="pagination.podcast.more"
-              rounded
-              variant="outlined"
-              color="primary"
-              @click="loadData('podcast')"
-              >load more</v-btn
-            >
-          </div>
-        </v-window-item>
-        <v-window-item :value="TYPES.MV">
-          <card-row :grid-type="GridType.B">
-            <video-cover v-for="mv in data.mvs" :key="mv.id" :data="mv" />
-          </card-row>
-          <div class="d-flex justify-center mt-4">
-            <v-btn v-if="pagination.mv.more" rounded variant="outlined" color="primary" @click="loadData('mv')"
-              >load more</v-btn
-            >
-          </div>
-        </v-window-item>
-        <v-window-item :value="TYPES.CLOUD">
-          <Cloud />
-        </v-window-item>
-        <v-window-item :value="TYPES.RANKING">
-          <ListenRanking />
-        </v-window-item>
       </v-window>
+
       <v-dialog v-model="createState.show">
         <v-card width="90vw" max-width="450" rounded="xl" class="py-2 align-self-center">
           <v-card-title>{{ $t('main.playlist.new') }}</v-card-title>
@@ -158,14 +105,7 @@ enum TYPES {
   PODCAST = 'podcast',
 }
 const tabs = computed(() => {
-  return [
-    { key: TYPES.PLAYLIST, name: t('main.playlists') },
-    // { key: TYPES.MV, name: t('main.mvs') },
-    { key: TYPES.CLOUD, name: t('main.disk') },
-    { key: TYPES.RANKING, name: t('main.ranking') },
-    { key: TYPES.ALBUM, name: t('main.albums') },
-    { key: TYPES.ARTIST, name: t('main.artists') },
-  ]
+  return [{ key: TYPES.PLAYLIST, name: t('main.playlists') }]
 })
 const current = ref(TYPES.PLAYLIST)
 const data: {
@@ -307,7 +247,6 @@ async function createNewPlaylist() {
     toast.error(t('message.something_wrong'))
   }
 }
-
 
 import ShortcutGrid from './discover/shortcuts/ShortcutGrid.vue'
 </script>

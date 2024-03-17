@@ -5,12 +5,11 @@
       :rounded="rounded"
       :flat="true"
       color="surfaceVariant"
-
       v-bind="{ ...hoverProps, ...$attrs }"
       :to="to"
     >
       <v-img
-        class='cover-image'
+        class="cover-image"
         :cover="true"
         :src="coverBgUrl"
         style="aspect-ratio: 1"
@@ -30,7 +29,7 @@
       </v-img>
       <div v-if="shadow && noInfo" class="cover-shadow" :style="`background-image: url('${coverBgUrl}')`" />
       <v-card-title v-if="!noInfo" :class="`line-clamp-${titleLine}`" style="white-space: initial">
-        <router-link :to="`/playlist/${data.id}`" class="text-h7 text-onSurfaceVariant">
+        <router-link :to="`/playlist/${data.id}`" class="text-h7 text-onSurfaceVariant text">
           {{ data.name }}
         </router-link>
       </v-card-title>
@@ -162,7 +161,11 @@ async function toggle() {
   }
   .v-card-title {
     color: antiquewhite;
-
+  }
+  .text {
+    // 文字溢出显示省略号
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 </style>
