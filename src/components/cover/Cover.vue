@@ -5,13 +5,12 @@
       :rounded="rounded"
       :flat="true"
       color="surfaceVariant"
-      :class="{ 'on-hover': isHovering }"
-      :elevation="isHovering ? 1 : 0"
+
       v-bind="{ ...hoverProps, ...$attrs }"
       :to="to"
     >
       <v-img
-        :class="`rounded-${rounded} ${noInfo ? 'cover-image' : 'cover-image-with-info'}`"
+        class='cover-image'
         :cover="true"
         :src="coverBgUrl"
         style="aspect-ratio: 1"
@@ -19,7 +18,7 @@
         :lazy-src="placeholderUrl"
       >
         <div class="d-flex flex-fill fill-height align-end pa-2">
-          <transition name="slide-fade-y">
+          <transition name="slide-fade-x">
             <div v-if="(isHovering || inActive) && showHover" class="d-flex flex-fill justify-space-between">
               <v-btn :icon="true" color="primary" :loading="loading" @click.prevent="toggle">
                 <v-icon color="onPrimary">{{ coverPlaying ? mdiPause : mdiPlay }} </v-icon>
@@ -31,7 +30,7 @@
       </v-img>
       <div v-if="shadow && noInfo" class="cover-shadow" :style="`background-image: url('${coverBgUrl}')`" />
       <v-card-title v-if="!noInfo" :class="`line-clamp-${titleLine}`" style="white-space: initial">
-        <router-link :to="`/playlist/${data.id}`" class="text-subtitle-2 text-onSurfaceVariant">
+        <router-link :to="`/playlist/${data.id}`" class="text-h7 text-onSurfaceVariant">
           {{ data.name }}
         </router-link>
       </v-card-title>
@@ -146,12 +145,9 @@ async function toggle() {
 <style scoped lang="scss">
 .cover-container {
   overflow: visible;
-  .cover-image-with-info {
-    //border-bottom-left-radius: initial !important;
-    //border-bottom-right-radius: initial !important;
-  }
+  border-radius: 12px;
   .cover-image {
-    z-index: 1;
+    border-radius: 12px;
   }
   .cover-shadow {
     position: absolute;
@@ -163,6 +159,10 @@ async function toggle() {
     filter: blur(30px);
     transform: scale(0.9);
     background-size: cover;
+  }
+  .v-card-title {
+    color: antiquewhite;
+
   }
 }
 </style>

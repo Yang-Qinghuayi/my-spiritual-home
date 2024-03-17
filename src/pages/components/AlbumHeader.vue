@@ -58,11 +58,7 @@ async function play() {
 
 function goto() {
   const url = `https://music.163.com/#/album?id=${props.album.id}`
-  if (is.electron()) {
-    // ipcRenderer.invoke('open-url', url)
-  } else {
-    window.open(url, '_blank')
-  }
+  window.open(url, '_blank')
 }
 
 async function subscribe() {

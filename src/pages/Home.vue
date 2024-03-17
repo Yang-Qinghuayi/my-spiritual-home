@@ -98,8 +98,8 @@ $transition-time: 350ms;
   user-select: none;
 }
 .v-player {
-  border-radius: 28px;
-  border: 8px solid rgba(var(--v-theme-primary), 0.2);
+  // border-radius: 20px;
+  // border: 8px solid rgba(var(--v-theme-primary), 0.2);
   transform: scale(1);
   height: 100vh;
   overflow-y: hidden;

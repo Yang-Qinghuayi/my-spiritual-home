@@ -18,7 +18,7 @@ const __APP_INFO__ = {
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, path.resolve(__dirname, './'))
-
+  console.log('env  ', env)
   const isDevelopment = command === 'serve'
   const plugins: any = [
     vue({
