@@ -1,16 +1,16 @@
 <template>
-  <v-app-bar v-if="track?.id" location="bottom" fixed class="player-footer px-2 rounded" :order="-1" :height="74">
+  <div v-if="track?.id">
     <TrackSlider class="track-slider" tooltip />
     <div class="playing-control">
       <div class="playing-bar__left">
         <v-hover v-slot="{ isHovering, props }">
           <v-img
             v-bind="props"
-            class="rounded-md"
+            class="myCover"
             :aspect-ratio="1"
-            :min-width="56"
-            :max-width="56"
-            :max-height="56"
+            :min-width="206"
+            :max-width="206"
+            :max-height="206"
             :src="coverUrl"
             cover
           >
@@ -27,56 +27,39 @@
             </router-Link>
             <span v-else class="line-clamp-1"> {{ track?.name }} </span>
           </div>
-          <router-link
-            v-if="isProgram && track.source"
-            :to="track.source?.fromUrl"
-            class="text-caption line-clamp-1 text-onSurface"
-          >
-            {{ track?.radio?.name }}[播客节目]
-          </router-link>
-          <artists-link v-else :artists="track?.ar" class="text-caption line-clamp-1" />
+          <artists-link :artists="track?.ar" class="text-caption line-clamp-1" />
         </div>
         <!--电台节目点赞-->
         <thumb-like-toggle v-if="isProgram" :id="track?.id" :liked="track.liked" :type="RESOURCE_TYPE.PROGRAM" />
         <!--歌曲收藏-->
-        <like-toggle v-else :id="track?.id" />
-        <v-btn v-if="!isProgram" icon variant="text" @click="openContextMenu">
-          <v-icon size="small">{{ mdiDotsHorizontal }}</v-icon>
-          <v-tooltip activator="parent" location="top" open-delay="100"> {{ t('common.add_playlist') }} </v-tooltip>
-        </v-btn>
-        <v-spacer />
       </div>
       <Control />
       <div class="playing-bar__right">
+        <!-- 音量 -->
+        <VolumeSlider orientation="horizontal" />
+        <!-- 正在播放的队列 -->
+        <v-btn icon :color="isQueue ? 'primary' : ''" :disabled="isCurrentFm" @click="toQueue">
+          <v-icon ref="playlistBtn" size="small">
+            {{ mdiPlaylistMusic }}
+          </v-icon>
+        </v-btn>
+        <!-- 心动模式 -->
         <v-btn v-if="showHeartBeat" icon :loading="heartbeatLoading" @click="generateHeartBeatList">
           <v-icon size="x-small">
             {{ mdiHeartPulse }}
           </v-icon>
           <v-tooltip activator="parent" location="top" open-delay="100"> {{ t('common.heart_beat') }} </v-tooltip>
         </v-btn>
-        <v-btn icon :color="showPipLyric ? 'primary' : ''" @click="togglePipLyric">
-          <v-icon size="x-small">
-            {{ mdiPictureInPictureTopRight }}
-          </v-icon>
-          <v-tooltip activator="parent" location="top" open-delay="100">
-            {{ showPipLyric ? t('common.hide_pip') : t('common.show_pip') }}
-          </v-tooltip>
-        </v-btn>
-        <MinimalBtn />
-        <!-- <v-btn icon @click="toggleMinimal">
-            <v-icon size="x-small">
-              {{ mdiDockWindow }}
-            </v-icon>
-          </v-btn> -->
-        <VolumeSlider orientation="horizontal" />
-        <v-btn icon :color="isQueue ? 'primary' : ''" :disabled="isCurrentFm" @click="toQueue">
-          <v-icon ref="playlistBtn" size="small">
-            {{ mdiPlaylistMusic }}
-          </v-icon>
+        <!-- <v-spacer /> -->
+
+        <like-toggle :id="track?.id" />
+        <v-btn v-if="!isProgram" icon variant="text" @click="openContextMenu">
+          <v-icon size="small">{{ mdiDotsHorizontal }}</v-icon>
+          <v-tooltip activator="parent" location="top" open-delay="100"> {{ t('common.add_playlist') }} </v-tooltip>
         </v-btn>
       </div>
     </div>
-  </v-app-bar>
+  </div>
 </template>
 <script setup lang="ts">
 import {
@@ -175,18 +158,7 @@ player.pipLyric!.onEnter = function () {
   showPipLyric.value = true
 }
 
-// async function toggleMinimal() {
-//   if (is.electron()) {
-//     const ipcRenderer = useIpcRenderer()
-//     await ipcRenderer.invoke('minimalWindow')
-//   }
-// }
-
 async function showPlayingPage() {
-  // if (is.electron() && settingStore.playingMode === PLAYING_MODE.MD && !settingStore.visualization) {
-  //   const ipcRenderer = useIpcRenderer()
-  //   await ipcRenderer.invoke('adjustWidth')
-  // }
   appStore.showLyric = true
 }
 
@@ -230,12 +202,9 @@ async function generateHeartBeatList() {
 <style lang="scss" scoped>
 .player-footer {
   bottom: 0;
-  width: 100vw;
-  z-index: 1007;
   display: flex;
   flex-flow: column nowrap;
   overflow: visible;
-  padding: 0 12px;
   :deep(.v-toolbar__content) {
     padding: 8px 0;
   }
@@ -247,7 +216,16 @@ async function generateHeartBeatList() {
     .playing-bar__left {
       display: flex;
       flex: 1;
-      align-items: center;
+    }
+    .myCover {
+      margin-right: 8px;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      overflow: hidden;
+      v-img {
+        border-radius: 10px;
+      }
     }
 
     .playing-bar__right {

@@ -1,11 +1,8 @@
 <template>
-  <v-navigation-drawer :rail="rail" rail-width="72" class="drag-area">
+  <v-navigation-drawer :rail="rail" rail-width="102" class="drag-area">
     <div class="px-3 mt-6" :class="{ 'mt-3': isClient, 'mb-1': rail }">
       <drawer-toggle />
     </div>
-    <!-- <div v-if="rail" class="d-flex justify-center">
-      <aggregate-extend-btn variant="extendFab" />
-    </div> -->
     <div class="content-warp flex-fill" :class="{ 'rail-nav': rail }">
       <v-list class="list-content d-flex flex-column justify-center" rounded :nav="true">
         <v-list-item
@@ -26,8 +23,9 @@
           </v-list-item-title>
         </v-list-item>
       </v-list>
+
       <transition name="slide-fade-y">
-        <div v-if="rail" class="pb-2 gap-2 no-drag-area px-2 d-flex justify-center flex-column align-center">
+        <div class="pb-2 gap-2 no-drag-area px-2 d-flex justify-center flex-column align-center">
           <app-account variant="tonal" />
           <!-- 设置按钮 -->
           <div
@@ -39,11 +37,20 @@
           </div>
         </div>
       </transition>
+      <app-playbar v-if="!rail" />
     </div>
   </v-navigation-drawer>
 </template>
 
 <script setup lang="ts">
+import AppPlaybar from './Footer.vue'
+
+import { sizeOfImage } from '@/util/fn'
+
+const { track, showPipLyric, isCurrentFm, isProgram } = usePlayerControl()
+
+const coverUrl = computed(() => sizeOfImage(track.value?.coverUrl ?? track.value?.al?.picUrl ?? '', 128))
+
 import { mdiEarth, mdiGamepad, mdiHome, mdiMagnify, mdiCog, mdiAlbum, mdiRadar } from '@mdi/js'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -74,18 +81,7 @@ const nav = computed(() => {
       title: 'main.nav.search',
       to: '/search',
     },
-    {
-      icon: mdiAlbum,
-      val: 'discover',
-      title: '每日推荐',
-      to: '/daily',
-    },
-    // {
-    //   icon: mdiRadar,
-    //   val: 'explore',
-    //   title: 'main.nav.explore',
-    //   to: '/explore',
-    // },
+
     {
       icon: mdiHome,
       val: 'discover',
@@ -93,14 +89,7 @@ const nav = computed(() => {
       to: '/discover',
     },
   ]
-  // if (logged.value) {
-  //   list.unshift({
-  //     icon: mdiGamepad,
-  //     val: 'stars',
-  //     title: 'main.nav.stars',
-  //     to: '/library',
-  //   })
-  // }
+
   return list
 })
 const navStyle = computed(() => {

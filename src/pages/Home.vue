@@ -7,7 +7,7 @@
     <app-content id="v-player-content" class="v-player-content" />
     <v-app-bar v-if="miniPlayer" height="4" flat location="bottom"></v-app-bar>
 
-    <app-playbar v-if="smAndUp && !miniPlayer" />
+    <!-- <app-playbar v-if="smAndUp && !miniPlayer" /> -->
     <app-mobile-playbar v-if="xs" />
     <app-bottom-nav v-if="xs" />
     <app-login />
